@@ -26,7 +26,7 @@
     android:paddingLeft="5dip"
     android:paddingRight="5dip"
     android:paddingBottom="10dip"
-    android:background="@drawable/dialpad_background">
+    >
 
     <TableRow
          android:layout_height="0px"

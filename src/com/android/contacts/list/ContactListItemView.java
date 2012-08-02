@@ -898,6 +898,7 @@ public class ContactListItemView extends ViewGroup
             // setActivated() call toward this whole item view.
             mNameTextView.setActivated(isActivated());
             mNameTextView.setGravity(Gravity.CENTER_VERTICAL);
+            mNameTextView.setTextColor(Color.BLACK);
             addView(mNameTextView);
         }
         return mNameTextView;

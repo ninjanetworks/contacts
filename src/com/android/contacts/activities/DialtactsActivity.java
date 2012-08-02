@@ -334,15 +334,15 @@ public class DialtactsActivity extends TransactionSafeActivity {
     private final OnClickListener mFilterOptionClickListener = new OnClickListener() {
         @Override
         public void onClick(View view) {
-            final PopupMenu popupMenu = new PopupMenu(DialtactsActivity.this, view);
-            final Menu menu = popupMenu.getMenu();
-            popupMenu.inflate(R.menu.dialtacts_search_options);
-            final MenuItem filterOptionMenuItem = menu.findItem(R.id.filter_option);
-            filterOptionMenuItem.setOnMenuItemClickListener(mFilterOptionsMenuItemClickListener);
-            final MenuItem addContactOptionMenuItem = menu.findItem(R.id.add_contact);
-            addContactOptionMenuItem.setIntent(
-                    new Intent(Intent.ACTION_INSERT, Contacts.CONTENT_URI));
-            popupMenu.show();
+            // final PopupMenu popupMenu = new PopupMenu(DialtactsActivity.this, view);
+            // final Menu menu = popupMenu.getMenu();
+            // popupMenu.inflate(R.menu.dialtacts_search_options);
+            // final MenuItem filterOptionMenuItem = menu.findItem(R.id.filter_option);
+            // filterOptionMenuItem.setOnMenuItemClickListener(mFilterOptionsMenuItemClickListener);
+            // final MenuItem addContactOptionMenuItem = menu.findItem(R.id.add_contact);
+            // addContactOptionMenuItem.setIntent(
+            //         new Intent(Intent.ACTION_INSERT, Contacts.CONTENT_URI));
+            // popupMenu.show();
         }
     };
 
@@ -564,13 +564,7 @@ public class DialtactsActivity extends TransactionSafeActivity {
             }
         });
 
-        if (!ViewConfiguration.get(this).hasPermanentMenuKey()) {
-            // Filter option menu should be shown on the right side of SearchView.
-            final View filterOptionView = searchViewLayout.findViewById(R.id.search_option);
-            filterOptionView.setVisibility(View.VISIBLE);
-            filterOptionView.setOnClickListener(mFilterOptionClickListener);
-        }
-
+   
         getActionBar().setCustomView(searchViewLayout,
                 new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
     }
@@ -718,6 +712,8 @@ public class DialtactsActivity extends TransactionSafeActivity {
             tabIndex = TAB_INDEX_DIALER;
         } else if (recentCallsRequest) {
             tabIndex = TAB_INDEX_CALL_LOG;
+        } else if (isContactIntent(intent)) {
+            tabIndex = TAB_INDEX_FAVORITES;
         } else {
             tabIndex = mLastManuallySelectedFragment;
         }
@@ -757,6 +753,13 @@ public class DialtactsActivity extends TransactionSafeActivity {
             }
         }
         invalidateOptionsMenu();
+    }
+
+    private boolean isContactIntent(Intent intent) {
+        if("android.intent.action.NINJACONTACT".equals(intent.getAction())) {
+            return true;
+        }
+        return false;
     }
 
     /** Returns true if the given intent contains a phone number to populate the dialer with */
@@ -847,74 +850,52 @@ public class DialtactsActivity extends TransactionSafeActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        final MenuItem searchMenuItem = menu.findItem(R.id.search_on_action_bar);
-        final MenuItem filterOptionMenuItem = menu.findItem(R.id.filter_option);
-        final MenuItem addContactOptionMenuItem = menu.findItem(R.id.add_contact);
-        final MenuItem callSettingsMenuItem = menu.findItem(R.id.menu_call_settings);
-        final MenuItem fakeMenuItem = menu.findItem(R.id.fake_menu_item);
-        Tab tab = getActionBar().getSelectedTab();
-        if (mInSearchUi) {
-            searchMenuItem.setVisible(false);
-            if (ViewConfiguration.get(this).hasPermanentMenuKey()) {
-                filterOptionMenuItem.setVisible(true);
-                filterOptionMenuItem.setOnMenuItemClickListener(
-                        mFilterOptionsMenuItemClickListener);
-                addContactOptionMenuItem.setVisible(true);
-                addContactOptionMenuItem.setIntent(
-                        new Intent(Intent.ACTION_INSERT, Contacts.CONTENT_URI));
-            } else {
-                // Filter option menu should be not be shown as a overflow menu.
-                filterOptionMenuItem.setVisible(false);
-                addContactOptionMenuItem.setVisible(false);
-            }
-            callSettingsMenuItem.setVisible(false);
-            fakeMenuItem.setVisible(false);
-        } else {
-            final boolean showCallSettingsMenu;
-            if (tab != null && tab.getPosition() == TAB_INDEX_DIALER) {
-                if (DEBUG) {
-                    Log.d(TAG, "onPrepareOptionsMenu(dialer). swipe: " + mDuringSwipe
-                            + ", user tab click: " + mUserTabClick);
-                }
-                if (mDuringSwipe || mUserTabClick) {
-                    // During horizontal movement, we just show real ActionBar menu items.
-                    searchMenuItem.setVisible(true);
-                    searchMenuItem.setOnMenuItemClickListener(mSearchMenuItemClickListener);
-                    showCallSettingsMenu = true;
+        // final MenuItem filterOptionMenuItem = menu.findItem(R.id.filter_option);
+        // final MenuItem callSettingsMenuItem = menu.findItem(R.id.menu_call_settings);
+        // final MenuItem fakeMenuItem = menu.findItem(R.id.fake_menu_item);
+        // Tab tab = getActionBar().getSelectedTab();
+        // if (true) {
+        //     final boolean showCallSettingsMenu;
+        //     if (tab != null && tab.getPosition() == TAB_INDEX_DIALER) {
+        //         if (DEBUG) {
+        //             Log.d(TAG, "onPrepareOptionsMenu(dialer). swipe: " + mDuringSwipe
+        //                     + ", user tab click: " + mUserTabClick);
+        //         }
+        //         if (mDuringSwipe || mUserTabClick) {
+        //             // During horizontal movement, we just show real ActionBar menu items.
 
-                    fakeMenuItem.setVisible(ViewConfiguration.get(this).hasPermanentMenuKey());
-                } else {
-                    searchMenuItem.setVisible(false);
-                    // When permanent menu key is _not_ available, the call settings menu should be
-                    // available via DialpadFragment.
-                    showCallSettingsMenu = ViewConfiguration.get(this).hasPermanentMenuKey();
-                    fakeMenuItem.setVisible(false);
-                }
-            } else {
-                searchMenuItem.setVisible(true);
-                searchMenuItem.setOnMenuItemClickListener(mSearchMenuItemClickListener);
-                showCallSettingsMenu = true;
-                fakeMenuItem.setVisible(ViewConfiguration.get(this).hasPermanentMenuKey());
-            }
-            if (tab != null && tab.getPosition() == TAB_INDEX_FAVORITES) {
-                filterOptionMenuItem.setVisible(true);
-                filterOptionMenuItem.setOnMenuItemClickListener(
-                        mFilterOptionsMenuItemClickListener);
-                addContactOptionMenuItem.setVisible(true);
-                addContactOptionMenuItem.setIntent(
-                        new Intent(Intent.ACTION_INSERT, Contacts.CONTENT_URI));
-            } else {
-                filterOptionMenuItem.setVisible(false);
-                addContactOptionMenuItem.setVisible(false);
-            }
+        //             showCallSettingsMenu = true;
 
-            if (showCallSettingsMenu) {
-                callSettingsMenuItem.setVisible(true);
-                callSettingsMenuItem.setIntent(DialtactsActivity.getCallSettingsIntent());
-            } else {
-                callSettingsMenuItem.setVisible(false);
-            }
-        }
+        //             fakeMenuItem.setVisible(ViewConfiguration.get(this).hasPermanentMenuKey());
+        //         } else {
+
+        //             // When permanent menu key is _not_ available, the call settings menu should be
+        //             // available via DialpadFragment.
+        //             showCallSettingsMenu = ViewConfiguration.get(this).hasPermanentMenuKey();
+        //             fakeMenuItem.setVisible(false);
+        //         }
+        //     } else {
+
+
+        //         showCallSettingsMenu = true;
+        //         fakeMenuItem.setVisible(ViewConfiguration.get(this).hasPermanentMenuKey());
+        //     }
+        //     if (tab != null && tab.getPosition() == TAB_INDEX_FAVORITES) {
+        //         filterOptionMenuItem.setVisible(true);
+        //         filterOptionMenuItem.setOnMenuItemClickListener(
+        //                 mFilterOptionsMenuItemClickListener);
+    
+        //     } else {
+        //         filterOptionMenuItem.setVisible(false);
+        //     }
+
+        //     if (showCallSettingsMenu) {
+        //         callSettingsMenuItem.setVisible(false);
+        //         callSettingsMenuItem.setIntent(DialtactsActivity.getCallSettingsIntent());
+        //     } else {
+        //         callSettingsMenuItem.setVisible(false);
+        //     }
+        // }
 
         return true;
     }

@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="@string/no_contact_details"
             android:textSize="20sp"
-            android:textColor="?android:attr/textColorSecondary"
+            android:textColor="#ffffffff"
             android:paddingLeft="10dip"
             android:paddingRight="10dip"
             android:paddingTop="10dip"

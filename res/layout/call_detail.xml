@@ -76,7 +76,7 @@
             android:id="@+id/blue_separator"
             android:layout_width="match_parent"
             android:layout_height="1dip"
-            android:background="@android:color/holo_blue_light"
+            android:background="#000"
             android:layout_below="@+id/contact_background_sizer"
         />
         <View
@@ -108,7 +108,7 @@
             android:layout_marginRight="@dimen/call_log_inner_margin"
             android:layout_marginLeft="@dimen/call_detail_contact_name_margin"
             android:gravity="center_vertical"
-            android:textColor="?attr/call_log_primary_text_color"
+            android:textColor="#000"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:singleLine="true"
         />
@@ -145,7 +145,6 @@
                 android:layout_height="@dimen/call_log_list_item_height"
                 android:orientation="horizontal"
                 android:gravity="center_vertical"
-                android:background="@drawable/dialpad_background"
             >
 
                 <LinearLayout android:id="@+id/call_and_sms_main_action"

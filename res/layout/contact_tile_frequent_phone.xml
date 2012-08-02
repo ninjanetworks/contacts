@@ -70,7 +70,7 @@
                 android:layout_weight="?attr/list_item_data_width_weight"
                 android:textSize="14sp"
                 android:ellipsize="marquee"
-                android:textColor="@color/dialtacts_secondary_text_color"
+                android:textColor="#000"
                 android:layout_marginLeft="8dip"
                 android:singleLine="true"
                 android:layout_gravity="bottom" />
@@ -84,7 +84,7 @@
                 android:ellipsize="marquee"
                 android:singleLine="true"
                 android:textAllCaps="true"
-                android:textColor="@color/dialtacts_secondary_text_color"
+                android:textColor="#000"
                 android:layout_marginLeft="8dip"
                 android:gravity="right"
                 android:layout_gravity="bottom" />

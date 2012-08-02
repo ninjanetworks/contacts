@@ -41,10 +41,10 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
     private TextView mMessageView;
     private TextView mSecondaryMessageView;
     private Button mCreateContactButton;
-    private Button mAddAccountButton;
-    private Button mImportContactsButton;
-    private Button mUninstallAppsButton;
-    private Button mRetryUpgradeButton;
+//    private Button mAddAccountButton;
+//    private Button mImportContactsButton;
+//    private Button mUninstallAppsButton;
+//    private Button mRetryUpgradeButton;
     private ProgressBar mProgress;
     private int mNoContactsMsgResId = -1;
     private int mNSecNoContactsMsgResId = -1;
@@ -59,14 +59,14 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
         mSecondaryMessageView = (TextView) mView.findViewById(R.id.secondary_message);
         mCreateContactButton = (Button) mView.findViewById(R.id.create_contact_button);
         mCreateContactButton.setOnClickListener(this);
-        mAddAccountButton = (Button) mView.findViewById(R.id.add_account_button);
-        mAddAccountButton.setOnClickListener(this);
-        mImportContactsButton = (Button) mView.findViewById(R.id.import_contacts_button);
-        mImportContactsButton.setOnClickListener(this);
-        mUninstallAppsButton = (Button) mView.findViewById(R.id.import_failure_uninstall_button);
-        mUninstallAppsButton.setOnClickListener(this);
-        mRetryUpgradeButton = (Button) mView.findViewById(R.id.import_failure_retry_button);
-        mRetryUpgradeButton.setOnClickListener(this);
+//        mAddAccountButton = (Button) mView.findViewById(R.id.add_account_button);
+//        mAddAccountButton.setOnClickListener(this);
+//        mImportContactsButton = (Button) mView.findViewById(R.id.import_contacts_button);
+//        mImportContactsButton.setOnClickListener(this);
+//        mUninstallAppsButton = (Button) mView.findViewById(R.id.import_failure_uninstall_button);
+//        mUninstallAppsButton.setOnClickListener(this);
+//        mRetryUpgradeButton = (Button) mView.findViewById(R.id.import_failure_retry_button);
+//        mRetryUpgradeButton.setOnClickListener(this);
         mProgress = (ProgressBar) mView.findViewById(R.id.progress);
         update();
         return mView;
@@ -87,10 +87,10 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
             case ProviderStatus.STATUS_NO_ACCOUNTS_NO_CONTACTS:
                 setMessageText(mNoContactsMsgResId, mNSecNoContactsMsgResId);
                 mCreateContactButton.setVisibility(View.VISIBLE);
-                mAddAccountButton.setVisibility(View.VISIBLE);
-                mImportContactsButton.setVisibility(View.VISIBLE);
-                mUninstallAppsButton.setVisibility(View.GONE);
-                mRetryUpgradeButton.setVisibility(View.GONE);
+//                mAddAccountButton.setVisibility(View.VISIBLE);
+//                mImportContactsButton.setVisibility(View.VISIBLE);
+//                mUninstallAppsButton.setVisibility(View.GONE);
+//                mRetryUpgradeButton.setVisibility(View.GONE);
                 mProgress.setVisibility(View.GONE);
                 break;
 
@@ -99,10 +99,10 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
                 mMessageView.setGravity(Gravity.CENTER_HORIZONTAL);
                 mMessageView.setVisibility(View.VISIBLE);
                 mCreateContactButton.setVisibility(View.GONE);
-                mAddAccountButton.setVisibility(View.GONE);
-                mImportContactsButton.setVisibility(View.GONE);
-                mUninstallAppsButton.setVisibility(View.GONE);
-                mRetryUpgradeButton.setVisibility(View.GONE);
+//                mAddAccountButton.setVisibility(View.GONE);
+//                mImportContactsButton.setVisibility(View.GONE);
+//                mUninstallAppsButton.setVisibility(View.GONE);
+//                mRetryUpgradeButton.setVisibility(View.GONE);
                 mProgress.setVisibility(View.VISIBLE);
                 break;
 
@@ -111,10 +111,10 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
                 mMessageView.setGravity(Gravity.CENTER_HORIZONTAL);
                 mMessageView.setVisibility(View.VISIBLE);
                 mCreateContactButton.setVisibility(View.GONE);
-                mAddAccountButton.setVisibility(View.GONE);
-                mImportContactsButton.setVisibility(View.GONE);
-                mUninstallAppsButton.setVisibility(View.GONE);
-                mRetryUpgradeButton.setVisibility(View.GONE);
+//                mAddAccountButton.setVisibility(View.GONE);
+//                mImportContactsButton.setVisibility(View.GONE);
+//                mUninstallAppsButton.setVisibility(View.GONE);
+//                mRetryUpgradeButton.setVisibility(View.GONE);
                 mProgress.setVisibility(View.VISIBLE);
                 break;
 
@@ -125,10 +125,10 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
                 mMessageView.setGravity(Gravity.LEFT);
                 mMessageView.setVisibility(View.VISIBLE);
                 mCreateContactButton.setVisibility(View.GONE);
-                mAddAccountButton.setVisibility(View.GONE);
-                mImportContactsButton.setVisibility(View.GONE);
-                mUninstallAppsButton.setVisibility(View.VISIBLE);
-                mRetryUpgradeButton.setVisibility(View.VISIBLE);
+//                mAddAccountButton.setVisibility(View.GONE);
+//                mImportContactsButton.setVisibility(View.GONE);
+//                mUninstallAppsButton.setVisibility(View.VISIBLE);
+//                mRetryUpgradeButton.setVisibility(View.VISIBLE);
                 mProgress.setVisibility(View.GONE);
                 break;
         }
@@ -143,18 +143,18 @@ public class ContactsUnavailableFragment extends Fragment implements OnClickList
             case R.id.create_contact_button:
                 mListener.onCreateNewContactAction();
                 break;
-            case R.id.add_account_button:
-                mListener.onAddAccountAction();
-                break;
-            case R.id.import_contacts_button:
-                mListener.onImportContactsFromFileAction();
-                break;
-            case R.id.import_failure_uninstall_button:
-                mListener.onFreeInternalStorageAction();
-                break;
-            case R.id.import_failure_retry_button:
-                mProviderStatusLoader.retryUpgrade();
-                break;
+//            case R.id.add_account_button:
+//                mListener.onAddAccountAction();
+//                break;
+//            case R.id.import_contacts_button:
+//                mListener.onImportContactsFromFileAction();
+//                break;
+//            case R.id.import_failure_uninstall_button:
+//                mListener.onFreeInternalStorageAction();
+//                break;
+//            case R.id.import_failure_retry_button:
+//                mProviderStatusLoader.retryUpgrade();
+//                break;
         }
     }
     /**

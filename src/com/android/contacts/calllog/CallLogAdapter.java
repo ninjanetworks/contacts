@@ -444,7 +444,7 @@ import libcore.util.Objects;
     private void findAndCacheViews(View view) {
         // Get the views to bind to.
         CallLogListItemViews views = CallLogListItemViews.fromView(view);
-        views.primaryActionView.setOnClickListener(mPrimaryActionListener);
+        //views.primaryActionView.setOnClickListener(mPrimaryActionListener);
         views.secondaryActionView.setOnClickListener(mSecondaryActionListener);
         view.setTag(views);
     }

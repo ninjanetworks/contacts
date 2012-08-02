@@ -238,15 +238,15 @@ public class ContactLoaderFragment extends Fragment implements FragmentKeyListen
 
         // Hide telephony-related settings (ringtone, send to voicemail)
         // if we don't have a telephone
-        final MenuItem optionsSendToVoicemail = menu.findItem(R.id.menu_send_to_voicemail);
-        if (optionsSendToVoicemail != null) {
-            optionsSendToVoicemail.setChecked(mSendToVoicemailState);
-            optionsSendToVoicemail.setVisible(mOptionsMenuOptions);
-        }
-        final MenuItem optionsRingtone = menu.findItem(R.id.menu_set_ringtone);
-        if (optionsRingtone != null) {
-            optionsRingtone.setVisible(mOptionsMenuOptions);
-        }
+//        final MenuItem optionsSendToVoicemail = menu.findItem(R.id.menu_send_to_voicemail);
+//        if (optionsSendToVoicemail != null) {
+//            optionsSendToVoicemail.setChecked(mSendToVoicemailState);
+//            optionsSendToVoicemail.setVisible(mOptionsMenuOptions);
+//        }
+//        final MenuItem optionsRingtone = menu.findItem(R.id.menu_set_ringtone);
+//        if (optionsRingtone != null) {
+//            optionsRingtone.setVisible(mOptionsMenuOptions);
+//        }
 
         final MenuItem editMenu = menu.findItem(R.id.menu_edit);
         editMenu.setVisible(mOptionsMenuEditable);
@@ -254,8 +254,8 @@ public class ContactLoaderFragment extends Fragment implements FragmentKeyListen
         final MenuItem deleteMenu = menu.findItem(R.id.menu_delete);
         deleteMenu.setVisible(mOptionsMenuEditable);
 
-        final MenuItem shareMenu = menu.findItem(R.id.menu_share);
-        shareMenu.setVisible(mOptionsMenuShareable);
+//        final MenuItem shareMenu = menu.findItem(R.id.menu_share);
+//        shareMenu.setVisible(mOptionsMenuShareable);
     }
 
     public boolean isContactOptionsChangeEnabled() {
@@ -282,11 +282,11 @@ public class ContactLoaderFragment extends Fragment implements FragmentKeyListen
                 if (mListener != null) mListener.onDeleteRequested(mLookupUri);
                 return true;
             }
-            case R.id.menu_set_ringtone: {
-                if (mContactData == null) return false;
-                doPickRingtone();
-                return true;
-            }
+//            case R.id.menu_set_ringtone: {
+//                if (mContactData == null) return false;
+//                doPickRingtone();
+//                return true;
+//            }
             case R.id.menu_share: {
                 if (mContactData == null) return false;
 
@@ -314,15 +314,15 @@ public class ContactLoaderFragment extends Fragment implements FragmentKeyListen
                 }
                 return true;
             }
-            case R.id.menu_send_to_voicemail: {
-                // Update state and save
-                mSendToVoicemailState = !mSendToVoicemailState;
-                item.setChecked(mSendToVoicemailState);
-                Intent intent = ContactSaveService.createSetSendToVoicemail(
-                        mContext, mLookupUri, mSendToVoicemailState);
-                mContext.startService(intent);
-                return true;
-            }
+//            case R.id.menu_send_to_voicemail: {
+//                // Update state and save
+//                mSendToVoicemailState = !mSendToVoicemailState;
+//                item.setChecked(mSendToVoicemailState);
+//                Intent intent = ContactSaveService.createSetSendToVoicemail(
+//                        mContext, mLookupUri, mSendToVoicemailState);
+//                mContext.startService(intent);
+//                return true;
+//            }
         }
         return false;
     }

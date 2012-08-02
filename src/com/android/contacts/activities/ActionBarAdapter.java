@@ -78,14 +78,14 @@ public class ActionBarAdapter implements OnQueryTextListener, OnCloseListener {
     private boolean mShowTabsAsText;
 
     public enum TabState {
-        GROUPS,
+//        GROUPS,
         ALL,
         FAVORITES;
 
         public static TabState fromInt(int value) {
-            if (GROUPS.ordinal() == value) {
-                return GROUPS;
-            }
+//            if (GROUPS.ordinal() == value) {
+//                return GROUPS;
+//            }
             if (ALL.ordinal() == value) {
                 return ALL;
             }
@@ -134,7 +134,7 @@ public class ActionBarAdapter implements OnQueryTextListener, OnCloseListener {
         mActionBar.setCustomView(customSearchView, layoutParams);
 
         // Set up tabs
-        addTab(TabState.GROUPS, R.drawable.ic_tab_groups, R.string.contactsGroupsLabel);
+//        addTab(TabState.GROUPS, R.drawable.ic_tab_groups, R.string.contactsGroupsLabel);
         addTab(TabState.ALL, R.drawable.ic_tab_all, R.string.contactsAllLabel);
         addTab(TabState.FAVORITES, R.drawable.ic_tab_starred, R.string.contactsFavoritesLabel);
     }

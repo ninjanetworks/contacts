@@ -16,5 +16,5 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <solid
-        android:color="@color/quickcontact_list_divider"/>
+        android:color="#000"/>
 </shape>

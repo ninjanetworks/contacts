@@ -28,6 +28,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.QuickContactBadge;
 import android.widget.TextView;
+import android.graphics.Color;
 
 /**
  * A ContactTile displays the contact's picture overlayed with their name
@@ -93,7 +94,7 @@ public class ContactTileView extends FrameLayout {
         if (entry != null) {
             mName.setText(entry.name);
             mLookupUri = entry.lookupKey;
-
+            mName.setTextColor(Color.BLACK);
             if (mStatus != null) {
                 if (entry.status == null) {
                     mStatus.setVisibility(View.GONE);

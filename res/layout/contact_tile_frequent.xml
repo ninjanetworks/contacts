@@ -17,7 +17,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     class="com.android.contacts.list.ContactTileView"
     android:focusable="true"
-    android:background="?android:attr/selectableItemBackground"
     android:nextFocusRight="@+id/contact_tile_quick">
 
     <RelativeLayout
@@ -51,7 +50,7 @@
                 android:id="@+id/contact_tile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/primary_text_color"
+                android:textColor="#000"
                 android:textSize="18sp"
                 android:singleLine="true"
                 android:fadingEdge="horizontal"
@@ -63,7 +62,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="?android:attr/textColorSecondary"
+                android:textColor="#000"
                 android:singleLine="true"
                 android:drawablePadding="4dip"
                 android:fadingEdge="horizontal"
@@ -76,7 +75,6 @@
             android:id="@+id/contact_tile_horizontal_divider"
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:background="?android:attr/listDivider"
             android:layout_below="@id/image_container" />
 
     </RelativeLayout>

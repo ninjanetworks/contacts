@@ -15,8 +15,4 @@
 -->
 <!-- Used with DialtactsActivity's search mode. -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/create_new_contact"
-        android:title="@string/pickerNewContactText"
-        android:showAsAction="ifRoom" />
 </menu>

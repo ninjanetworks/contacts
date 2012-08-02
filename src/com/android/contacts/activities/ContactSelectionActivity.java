@@ -82,7 +82,7 @@ public class ContactSelectionActivity extends ContactsActivity
     private int mActionCode = -1;
 
     private ContactsRequest mRequest;
-    private SearchView mSearchView;
+//    private SearchView mSearchView;
     /**
      * Can be null. If null, the "Create New Contact" button should be on the menu.
      */
@@ -133,17 +133,17 @@ public class ContactSelectionActivity extends ContactsActivity
             configureListFragment();
         }
 
-        prepareSearchViewAndActionBar();
+        //prepareSearchViewAndActionBar();
 
-        mCreateNewContactButton = findViewById(R.id.new_contact);
-        if (mCreateNewContactButton != null) {
-            if (shouldShowCreateNewContactButton()) {
-                mCreateNewContactButton.setVisibility(View.VISIBLE);
-                mCreateNewContactButton.setOnClickListener(this);
-            } else {
-                mCreateNewContactButton.setVisibility(View.GONE);
-            }
-        }
+        // mCreateNewContactButton = findViewById(R.id.new_contact);
+        // if (mCreateNewContactButton != null) {
+        //     if (shouldShowCreateNewContactButton()) {
+        //         mCreateNewContactButton.setVisibility(View.VISIBLE);
+        //         mCreateNewContactButton.setOnClickListener(this);
+        //     } else {
+        //         mCreateNewContactButton.setVisibility(View.GONE);
+        //     }
+        // }
     }
 
     private boolean shouldShowCreateNewContactButton() {
@@ -169,51 +169,51 @@ public class ContactSelectionActivity extends ContactsActivity
 
         // If ActionBar is available, show SearchView on it. If not, show SearchView inside the
         // Activity's layout.
-        final ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            final View searchViewOnLayout = findViewById(R.id.search_view);
-            if (searchViewOnLayout != null) {
-                searchViewOnLayout.setVisibility(View.GONE);
-            }
+        // final ActionBar actionBar = getActionBar();
+        // if (actionBar != null) {
+        //     final View searchViewOnLayout = findViewById(R.id.search_view);
+        //     if (searchViewOnLayout != null) {
+        //         searchViewOnLayout.setVisibility(View.GONE);
+        //     }
 
-            final View searchViewContainer = LayoutInflater.from(actionBar.getThemedContext())
-                    .inflate(R.layout.custom_action_bar, null);
-            mSearchView = (SearchView) searchViewContainer.findViewById(R.id.search_view);
+        //     final View searchViewContainer = LayoutInflater.from(actionBar.getThemedContext())
+        //             .inflate(R.layout.custom_action_bar, null);
+        //     mSearchView = (SearchView) searchViewContainer.findViewById(R.id.search_view);
 
-            // In order to make the SearchView look like "shown via search menu", we need to
-            // manually setup its state. See also DialtactsActivity.java and ActionBarAdapter.java.
-            mSearchView.setIconifiedByDefault(true);
-            mSearchView.setQueryHint(getString(R.string.hint_findContacts));
-            mSearchView.setIconified(false);
+        //     // In order to make the SearchView look like "shown via search menu", we need to
+        //     // manually setup its state. See also DialtactsActivity.java and ActionBarAdapter.java.
+        //     mSearchView.setIconifiedByDefault(true);
+        //     mSearchView.setQueryHint(getString(R.string.hint_findContacts));
+        //     mSearchView.setIconified(false);
 
-            mSearchView.setOnQueryTextListener(this);
-            mSearchView.setOnCloseListener(this);
-            mSearchView.setOnQueryTextFocusChangeListener(this);
+        //     mSearchView.setOnQueryTextListener(this);
+        //     mSearchView.setOnCloseListener(this);
+        //     mSearchView.setOnQueryTextFocusChangeListener(this);
 
-            actionBar.setCustomView(searchViewContainer,
-                    new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-            actionBar.setDisplayShowCustomEnabled(true);
-            actionBar.setDisplayShowHomeEnabled(true);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        } else {
-            mSearchView = (SearchView) findViewById(R.id.search_view);
-            mSearchView.setQueryHint(getString(R.string.hint_findContacts));
-            mSearchView.setOnQueryTextListener(this);
+        //     actionBar.setCustomView(searchViewContainer,
+        //             new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+        //     actionBar.setDisplayShowCustomEnabled(true);
+        //     actionBar.setDisplayShowHomeEnabled(true);
+        //     actionBar.setDisplayHomeAsUpEnabled(true);
+        // } else {
+        //     mSearchView = (SearchView) findViewById(R.id.search_view);
+        //     mSearchView.setQueryHint(getString(R.string.hint_findContacts));
+        //     mSearchView.setOnQueryTextListener(this);
 
-            // This is a hack to prevent the search view from grabbing focus
-            // at this point.  If search view were visible, it would always grabs focus
-            // because it is the first focusable widget in the window.
-            mSearchView.setVisibility(View.INVISIBLE);
-            mSearchView.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    mSearchView.setVisibility(View.VISIBLE);
-                }
-            }, FOCUS_DELAY);
-        }
+        //     // This is a hack to prevent the search view from grabbing focus
+        //     // at this point.  If search view were visible, it would always grabs focus
+        //     // because it is the first focusable widget in the window.
+        //     mSearchView.setVisibility(View.INVISIBLE);
+        //     mSearchView.postDelayed(new Runnable() {
+        //         @Override
+        //         public void run() {
+        //             mSearchView.setVisibility(View.VISIBLE);
+        //         }
+        //     }, FOCUS_DELAY);
+        // }
 
         // Clear focus and suppress keyboard show-up.
-        mSearchView.clearFocus();
+        //mSearchView.clearFocus();
     }
 
     @Override
@@ -235,10 +235,10 @@ public class ContactSelectionActivity extends ContactsActivity
                 setResult(RESULT_CANCELED);
                 finish();
                 return true;
-            case R.id.create_new_contact: {
-                startCreateNewContactActivity();
-                return true;
-            }
+            // case R.id.create_new_contact: {
+            //     startCreateNewContactActivity();
+            //     return true;
+            //}
         }
         return super.onOptionsItemSelected(item);
     }
@@ -532,9 +532,9 @@ public class ContactSelectionActivity extends ContactsActivity
 
     @Override
     public boolean onClose() {
-        if (!TextUtils.isEmpty(mSearchView.getQuery())) {
-            mSearchView.setQuery(null, true);
-        }
+        // if (!TextUtils.isEmpty(mSearchView.getQuery())) {
+        //     mSearchView.setQuery(null, true);
+        // }
         return true;
     }
 
@@ -543,7 +543,7 @@ public class ContactSelectionActivity extends ContactsActivity
         switch (view.getId()) {
             case R.id.search_view: {
                 if (hasFocus) {
-                    showInputMethod(mSearchView.findFocus());
+                    //howInputMethod(mSearchView.findFocus());
                 }
             }
         }
@@ -564,10 +564,10 @@ public class ContactSelectionActivity extends ContactsActivity
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.new_contact: {
-                startCreateNewContactActivity();
-                break;
-            }
+            // case R.id.new_contact: {
+            //     startCreateNewContactActivity();
+            //     break;
+            // }
         }
     }
 

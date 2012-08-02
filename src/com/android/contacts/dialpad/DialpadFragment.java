@@ -262,12 +262,12 @@ public class DialpadFragment extends Fragment
         mMenuButton = fragmentView.findViewById(R.id.overflow_menu);
         if (mMenuButton != null) {
             mMenuButton.setMinimumWidth(fakeMenuItemWidth);
-            if (ViewConfiguration.get(getActivity()).hasPermanentMenuKey()) {
+            //if (ViewConfiguration.get(getActivity()).hasPermanentMenuKey()) {
                 // This is required for dialpad button's layout, so must not use GONE here.
                 mMenuButton.setVisibility(View.INVISIBLE);
-            } else {
-                mMenuButton.setOnClickListener(this);
-            }
+           // } else {
+           //     mMenuButton.setOnClickListener(this);
+           // }
         }
         mSearchButton = fragmentView.findViewById(R.id.searchButton);
         if (mSearchButton != null) {
@@ -586,7 +586,8 @@ public class DialpadFragment extends Fragment
     }
 
     private void setupMenuItems(Menu menu) {
-        final MenuItem callSettingsMenuItem = menu.findItem(R.id.menu_call_settings_dialpad);
+//        final MenuItem callSettingsMenuItem = menu.findItem(R.id.menu_call_settings_dialpad);
+    	final MenuItem callSettingsMenuItem = null;
         final MenuItem addToContactMenuItem = menu.findItem(R.id.menu_add_contacts);
         final MenuItem twoSecPauseMenuItem = menu.findItem(R.id.menu_2s_pause);
         final MenuItem waitMenuItem = menu.findItem(R.id.menu_add_wait);
@@ -760,39 +761,40 @@ public class DialpadFragment extends Fragment
                 dialButtonPressed();
                 return;
             }
-            case R.id.searchButton: {
-                mHaptic.vibrate();
-                if (mListener != null) {
-                    mListener.onSearchButtonPressed();
-                }
-                return;
-            }
+//            case R.id.searchButton: {
+//                mHaptic.vibrate();
+//                if (mListener != null) {
+//                    mListener.onSearchButtonPressed();
+//                }
+//                return;
+//            }
             case R.id.digits: {
                 if (!isDigitsEmpty()) {
                     mDigits.setCursorVisible(true);
                 }
                 return;
             }
-            case R.id.overflow_menu: {
-                PopupMenu popup = constructPopupMenu(view);
-                if (popup != null) {
-                    popup.show();
-                }
-            }
+//            case R.id.overflow_menu: {
+//                PopupMenu popup = constructPopupMenu(view);
+//                if (popup != null) {
+//                    popup.show();
+//                }
+//            }
         }
     }
 
     private PopupMenu constructPopupMenu(View anchorView) {
-        final Context context = getActivity();
-        if (context == null) {
-            return null;
-        }
-        final PopupMenu popupMenu = new PopupMenu(context, anchorView);
-        final Menu menu = popupMenu.getMenu();
-        popupMenu.inflate(R.menu.dialpad_options);
-        popupMenu.setOnMenuItemClickListener(this);
-        setupMenuItems(menu);
-        return popupMenu;
+    	return null;
+    	//        final Context context = getActivity();
+//        if (context == null) {
+//            return null;
+//        }
+//        final PopupMenu popupMenu = new PopupMenu(context, anchorView);
+//        final Menu menu = popupMenu.getMenu();
+//        popupMenu.inflate(R.menu.dialpad_options);
+//        popupMenu.setOnMenuItemClickListener(this);
+//        setupMenuItems(menu);
+//        return popupMenu;
     }
 
     public boolean onLongClick(View view) {

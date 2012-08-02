@@ -92,7 +92,7 @@ public class CallLogFragment extends ListFragment implements ViewPagerVisibility
         mCallLogQueryHandler = new CallLogQueryHandler(getActivity().getContentResolver(), this);
         mKeyguardManager =
                 (KeyguardManager) getActivity().getSystemService(Context.KEYGUARD_SERVICE);
-        setHasOptionsMenu(true);
+        setHasOptionsMenu(false);
     }
 
     /** Called by the CallLogQueryHandler when the list of calls has been fetched or updated. */

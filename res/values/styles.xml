@@ -13,14 +13,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
     <style name="DialtactsTheme"
            parent="android:Theme.Holo">
-        <item name="android:textColorSecondary">@color/dialtacts_secondary_text_color</item>
+        <item name="android:textColorSecondary">#000</item>
         <item name="android:windowActionBarOverlay">true</item>
         <item name="android:actionBarStyle">@style/DialtactsActionBarStyle</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:windowBackground">@drawable/background_dial_holo_dark</item>
+        <item name="android:windowBackground">@drawable/background</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
         <item name="activated_background">@drawable/list_item_activated_background</item>
         <item name="section_header_background">@drawable/list_title_holo</item>
@@ -67,7 +67,7 @@
     </style>
 
     <style name="CallDetailActivityTheme" parent="android:Theme.Holo">
-        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowBackground">@drawable/background</item>
         <item name="android:gravity">top</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
         <!-- CallLog -->
@@ -84,11 +84,8 @@
     </style>
 
     <style name="DetailActivityTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
-        <item name="android:actionBarItemBackground">@drawable/action_bar_item_background</item>
-        <item name="android:actionBarWidgetTheme">@style/ContactsActionBarTheme</item>
-        <item name="android:textColorPrimary">@color/primary_text_color</item>
-        <item name="android:textColorSecondary">@color/secondary_text_color</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorSecondary">#000</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
     </style>
 
@@ -97,8 +94,8 @@
         <item name="android:actionBarItemBackground">@drawable/action_bar_item_background</item>
         <item name="android:actionBarWidgetTheme">@style/ContactsActionBarTheme</item>
         <item name="android:windowContentOverlay">@null</item>
-        <item name="android:textColorPrimary">@color/primary_text_color</item>
-        <item name="android:textColorSecondary">@color/secondary_text_color</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorSecondary">#000</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
     </style>
 
@@ -128,16 +125,12 @@
     </style>
 
     <style name="PeopleTheme" parent="@android:style/Theme.Holo.Light.DarkActionBar">
-        <item name="android:actionBarStyle">@style/ContactsActionBarStyle</item>
-        <item name="android:actionBarItemBackground">@drawable/action_bar_item_background</item>
-        <item name="android:actionBarWidgetTheme">@style/ContactsActionBarTheme</item>
-        <item name="android:actionBarTabStyle">@style/ContactsActionBarTabView</item>
-        <item name="android:textColorPrimary">@color/primary_text_color</item>
-        <item name="android:textColorSecondary">@color/secondary_text_color</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorSecondary">#000</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
         <item name="list_item_height">?android:attr/listPreferredItemHeight</item>
-        <item name="activated_background">@drawable/list_item_activated_background</item>
-        <item name="section_header_background">@drawable/list_title_holo</item>
+        <item name="activated_background">@android:color/transparent</item>
+        <item name="section_header_background">@@android:color/transparent</item>
         <item name="list_section_header_height">24dip</item>
         <item name="list_item_divider">?android:attr/listDivider</item>
         <item name="list_item_padding_top">0dip</item>
@@ -185,7 +178,7 @@
     </style>
 
     <style name="ContactsActionBarTabView" parent="@android:style/Widget.Holo.ActionBar.TabView">
-        <item name="android:background">@drawable/action_bar_tab</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
     <style name="ListViewDropdownStyle" parent="@android:style/Widget.ListView.DropDown">
@@ -217,6 +210,7 @@
     <style name="CustomContactListFilterView" parent="ContactListFilterTheme">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">#000000</item>
     </style>
 
     <style name="DirectoryHeader" parent="PeopleTheme">
@@ -235,8 +229,8 @@
 
     <style name="ContactEditorAccountsChangedActivityTheme" parent="@android:style/Theme.Holo.Light.Dialog.NoActionBar.MinWidth">
         <item name="android:windowCloseOnTouchOutside">true</item>
-        <item name="android:textColorPrimary">@color/primary_text_color</item>
-        <item name="android:textColorSecondary">@color/secondary_text_color</item>
+        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorSecondary">#000</item>
         <item name="android:listViewStyle">@style/ListViewStyle</item>
     </style>
 
@@ -248,7 +242,7 @@
 
     <style name="ContactDetailItemType">
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
-        <item name="android:textColor">?android:attr/textColorSecondary</item>
+        <item name="android:textColor">#000</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:layout_gravity">center_vertical</item>
@@ -271,6 +265,7 @@
         <item name="android:layout_weight">1</item>
         <item name="android:background">?android:attr/selectableItemBackground</item>
         <item name="android:soundEffectsEnabled">false</item>
+        <item name="android:textColor">#000</item>
     </style>
 
     <style name="ConfirmAddDetailViewStyle">
@@ -330,7 +325,7 @@
         <item name="android:background">@drawable/list_section_divider_holo_custom</item>
         <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">@color/people_app_theme_color</item>
+        <item name="android:textColor">#0000</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">8dip</item>
         <item name="android:ellipsize">end</item>

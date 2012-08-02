@@ -41,7 +41,7 @@
             android:layout_height="@dimen/contact_tile_shadowbox_height"
             android:background="@color/contact_tile_shadow_box_color"
             android:gravity="center_vertical"
-            android:textColor="@android:color/white"
+            android:textColor="#000"
             android:singleLine="true"
             android:textSize="16sp"
             android:fadingEdge="horizontal"

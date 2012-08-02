@@ -185,8 +185,8 @@ public class QuickContactActivity extends Activity {
                 hide(false);
             }
         };
-        mOpenDetailsButton.setOnClickListener(openDetailsClickHandler);
-        mOpenDetailsPushLayerButton.setOnClickListener(openDetailsClickHandler);
+        // mOpenDetailsButton.setOnClickListener(openDetailsClickHandler);
+        // mOpenDetailsPushLayerButton.setOnClickListener(openDetailsClickHandler);
         mListPager.setAdapter(new ViewPagerAdapter(getFragmentManager()));
         mListPager.setOnPageChangeListener(new PageChangeListener());
 
